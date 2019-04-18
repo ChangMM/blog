@@ -1,0 +1,6 @@
+.DS_Store
+.idea
+node_modules
+_book
+.vuepress/dist/*
+.vuepress/dist
