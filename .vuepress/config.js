@@ -18,7 +18,7 @@ module.exports = {
   },
   themeConfig: {
     logo: '/logo.png',
-    search: false,
+    search: true,
     nav: [
       { text: '首页', link: '1' },
       { text: '酷站', link: '2' },

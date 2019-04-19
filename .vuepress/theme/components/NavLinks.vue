@@ -1,32 +1,12 @@
 <template>
-  <nav
-    class="nav-links"
-    v-if="userLinks.length || repoLink"
-  >
+  <nav class="nav-links" v-if="userLinks.length || repoLink">
     <!-- user links -->
-    <div
-      class="nav-item"
-      v-for="item in userLinks"
-      :key="item.link"
-    >
-      <DropdownLink
-        v-if="item.type === 'links'"
-        :item="item"
-      />
-      <NavLink
-        v-else
-        :item="item"
-      />
+    <div class="nav-item" v-for="item in userLinks" :key="item.link">
+      <DropdownLink v-if="item.type === 'links'" :item="item"/>
+      <NavLink v-else :item="item"/>
     </div>
-
     <!-- repo link -->
-    <a
-      v-if="repoLink"
-      :href="repoLink"
-      class="repo-link"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <a v-if="repoLink" :href="repoLink" class="repo-link" target="_blank" rel="noopener noreferrer">
       {{ repoLabel }}
       <OutboundLink/>
     </a>
@@ -119,15 +99,19 @@ export default {
 .nav-links
   display inline-block
   a
-    line-height 1.4rem
     color inherit
+    transation all ease 0.3s
     &:hover, &.router-link-active
       color $accentColor
+      text-decoration none
+      margin-bottom -2px
+      border-bottom 2px solid lighten($accentColor, 8%)
   .nav-item
     position relative
     display inline-block
     margin-left 1.5rem
-    line-height 2rem
+    height 20px;
+    line-height 20px;
     &:first-child
       margin-left 0
   .repo-link
@@ -137,13 +121,4 @@ export default {
   .nav-links
     .nav-item, .repo-link
       margin-left 0
-
-@media (min-width: $MQMobile)
-  .nav-links a
-    &:hover, &.router-link-active
-      color $textColor
-  .nav-item > a:not(.external)
-    &:hover, &.router-link-active
-      margin-bottom -2px
-      border-bottom 2px solid lighten($accentColor, 8%)
 </style>

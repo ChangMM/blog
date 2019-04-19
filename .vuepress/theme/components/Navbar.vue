@@ -1,37 +1,16 @@
 <template>
   <header class="navbar">
-    <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')"/>
+    <div class="inner-block">
+      <!-- <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')"/> -->
 
-    <router-link
-      :to="$localePath"
-      class="home-link"
-    >
-      <img
-        class="logo"
-        v-if="$site.themeConfig.logo"
-        :src="$withBase($site.themeConfig.logo)"
-        :alt="$siteTitle"
-      >
-      <span
-        ref="siteName"
-        class="site-name"
-        v-if="$siteTitle"
-        :class="{ 'can-hide': $site.themeConfig.logo }"
-      >{{ $siteTitle }}</span>
-    </router-link>
+      <router-link :to="$localePath" class="home-link">
+        <img class="logo" v-if="$site.themeConfig.logo" :src="$withBase($site.themeConfig.logo)" :alt="$siteTitle">
+        <span ref="siteName" class="site-name" v-if="$siteTitle" :class="{ 'can-hide': $site.themeConfig.logo }">{{ $siteTitle }}</span>
+      </router-link>
 
-    <div
-      class="links"
-      :style="linksWrapMaxWidth ? {
-        'max-width': linksWrapMaxWidth + 'px'
-      } : {}"
-    >
-      <AlgoliaSearchBox
-        v-if="isAlgoliaSearch"
-        :options="algolia"
-      />
-      <SearchBox v-else-if="$site.themeConfig.search !== false && $page.frontmatter.search !== false"/>
-      <NavLinks class="can-hide"/>
+      <div class="links" :style="linksWrapMaxWidth ? { 'max-width': linksWrapMaxWidth + 'px' } : {}">
+        <NavLinks class="can-hide"/>
+      </div>
     </div>
   </header>
 </template>
@@ -64,17 +43,16 @@ export default {
     }
     handleLinksWrapWidth()
     window.addEventListener('resize', handleLinksWrapWidth, false)
-  },
-
-  computed: {
-    algolia () {
-      return this.$themeLocaleConfig.algolia || this.$site.themeConfig.algolia || {}
-    },
-
-    isAlgoliaSearch () {
-      return this.algolia && this.algolia.apiKey && this.algolia.indexName
-    }
   }
+  // computed: {
+  //   algolia () {
+  //     return this.$themeLocaleConfig.algolia || this.$site.themeConfig.algolia || {}
+  //   },
+  //
+  //   isAlgoliaSearch () {
+  //     return this.algolia && this.algolia.apiKey && this.algolia.indexName
+  //   }
+  // }
 }
 
 function css (el, property) {
@@ -86,33 +64,42 @@ function css (el, property) {
 </script>
 
 <style lang="stylus">
-$navbar-vertical-padding = 0.7rem
-$navbar-horizontal-padding = 1.5rem
+@require '../styles/config.styl'
+$inner-height = 20px
 
 .navbar
-  padding $navbar-vertical-padding $navbar-horizontal-padding
-  line-height $navbarHeight - 1.4rem
+  padding 5px
+  .inner-block
+    margin 0 auto
+    position relative
+    max-width $contentWidth
   a, span, img
     display inline-block
+  .home-link
+    height $inner-height
+    line-height $inner-height
+    &:hover
+      text-decoration none
+
   .logo
-    height $navbarHeight - 1.4rem
-    min-width $navbarHeight - 1.4rem
-    margin-right 0.8rem
+    height $inner-height
+    margin-right 6px
     vertical-align top
   .site-name
-    font-size 1.3rem
+    vertical-align middle
+    font-size 16px
     font-weight 600
-    color $textColor
+    height $inner-height
+    line-height $inner-height
+    color $accentColor
     position relative
   .links
     padding-left 1.5rem
-    box-sizing border-box
-    background-color white
     white-space nowrap
     font-size 0.9rem
     position absolute
-    right $navbar-horizontal-padding
-    top $navbar-vertical-padding
+    right 10px
+    top 0
     display flex
     .search-box
       flex: 0 0 auto

@@ -5,9 +5,12 @@
 @require './toc'
 @require './config'
 
-html, body
-  padding 0
+*
   margin 0
+  padding 0
+  box-sizing: border-box;
+
+html, body
   background-color #fff
 
 body
@@ -15,6 +18,7 @@ body
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
   font-size 14px
+  line-height 1.5
   word-spacing 0.5px
   color $textColor
 
@@ -27,9 +31,7 @@ body
   top 0
   left 0
   right 0
-  height $navbarHeight
-  background-color #fff
-  box-sizing border-box
+  background-color #eee
   border-bottom 1px solid $borderColor
 
 .sidebar-mask
@@ -78,6 +80,8 @@ a
   font-weight 500
   color $accentColor
   text-decoration none
+  &:hover
+    text-decoration: underline;
 
 p a code
   font-weight 400
@@ -145,7 +149,7 @@ code, kbd, .line-number
   font-family source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace
 
 p, ul, ol
-  line-height 1.7
+  line-height 1.5
 
 hr
   border 0
