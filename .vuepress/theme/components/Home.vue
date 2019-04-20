@@ -1,117 +1,85 @@
 <template>
   <main class="home" aria-labelledby="main-title">
+    <div class="slogan-wrap">
+      <div class="inner-block">
+        <h2 class="name">明明三省</h2>
+        <p class="intro">布谷鳥在城市的上空，孤獨的叫著就像我的歌。</p>
+        <SearchBox class="search-box" v-if="$site.themeConfig.search !== false && $page.frontmatter.search !== false"/>
+        <!-- <AlgoliaSearchBox v-if="isAlgoliaSearch" :options="algolia"/> -->
+      </div>
+    </div>
+
     <Content class="custom"/>
+
+    <div class="content-wrap">
+      <div class="inner-block">
+        <div class="post-wrap">
+          <PostItem v-for="item in $tops" :post="item" :top='true' :key="item.key + item.frontmatter.title" />
+          <PostItem v-for="item in $posts" :post="item" :top='false' :key="item.key" />
+        </div>
+        <aside class="aside">
+          <Category />
+        </aside>
+      </div>
+    </div>
   </main>
 </template>
 
 <script>
+// import AlgoliaSearchBox from '@AlgoliaSearchBox'
+import SearchBox from '@theme/components/SearchBox'
 import NavLink from '@theme/components/NavLink.vue'
+import PostItem from '@theme/components/PostItem.vue'
+import Category from '@theme/components/Category.vue'
+import { PATHS } from '../util'
 
 export default {
-  components: { NavLink },
-
+  components: { NavLink, PostItem, SearchBox, Category },
+  mounted() {
+    console.log('all pages', this.$site.pages)
+    console.log('top posts', this.$tops)
+    console.log('all posts', this.$posts)
+    console.log('all tags', this.$tags)
+    console.log('all categorys', this.$categorys)
+  },
   computed: {
-    data () {
-      return this.$page.frontmatter
-    },
-
-    actionLink () {
-      return {
-        link: this.data.actionLink,
-        text: this.data.actionText
-      }
-    }
+    // 暂时不用 AlgoliaSearchBox
+    // algolia () {
+    //   return this.$themeLocaleConfig.algolia || this.$site.themeConfig.algolia || {}
+    // },
+    //
+    // isAlgoliaSearch () {
+    //   return this.algolia && this.algolia.apiKey && this.algolia.indexName
+    // }
   }
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 .home
-  padding $navbarHeight 2rem 0
-  max-width 960px
-  margin 0px auto
-  display block
-  .hero
-    text-align center
-    img
-      max-width: 100%
-      max-height 280px
-      display block
-      margin 3rem auto 1.5rem
-    h1
-      font-size 3rem
-    h1, .description, .action
-      margin 1.8rem auto
-    .description
-      max-width 35rem
-      font-size 1.6rem
-      line-height 1.3
-      color lighten($textColor, 40%)
-    .action-button
-      display inline-block
-      font-size 1.2rem
-      color #fff
-      background-color $accentColor
-      padding 0.8rem 1.6rem
-      border-radius 4px
-      transition background-color .1s ease
-      box-sizing border-box
-      border-bottom 1px solid darken($accentColor, 10%)
-      &:hover
-        background-color lighten($accentColor, 10%)
-  .features
-    border-top 1px solid $borderColor
-    padding 1.2rem 0
-    margin-top 2.5rem
-    display flex
-    flex-wrap wrap
-    align-items flex-start
-    align-content stretch
-    justify-content space-between
-  .feature
-    flex-grow 1
-    flex-basis 30%
-    max-width 30%
-    h2
-      font-size 1.4rem
-      font-weight 500
-      border-bottom none
-      padding-bottom 0
-      color lighten($textColor, 10%)
-    p
-      color lighten($textColor, 25%)
-  .footer
-    padding 2.5rem
-    border-top 1px solid $borderColor
-    text-align center
-    color lighten($textColor, 25%)
-
-@media (max-width: $MQMobile)
-  .home
-    .features
-      flex-direction column
-    .feature
-      max-width 100%
-      padding 0 2.5rem
-
-@media (max-width: $MQMobileNarrow)
-  .home
-    padding-left 1.5rem
-    padding-right 1.5rem
-    .hero
-      img
-        max-height 210px
-        margin 2rem auto 1.2rem
-      h1
-        font-size 2rem
-      h1, .description, .action
-        margin 1.2rem auto
-      .description
-        font-size 1.2rem
-      .action-button
-        font-size 1rem
-        padding 0.6rem 1.2rem
-    .feature
-      h2
-        font-size 1.25rem
+  .slogan-wrap
+    border-bottom 1px solid #eee
+    padding 40px 0
+    .inner-block
+      position relative
+    .name
+      font-size 2rem
+      font-weight normal
+    .intro
+      color #666
+      font-style italic
+    .search-box
+      position absolute
+      top 10px
+      right 0
+  .content-wrap
+    .inner-block
+      position relative
+      display flex
+      justify-content  space-between
+    .post-wrap
+      width 680px
+    .aside
+      margin-top 20px
+      width 240px
 </style>

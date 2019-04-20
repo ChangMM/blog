@@ -3,6 +3,54 @@ export const extRE = /\.(md|html)$/
 export const endingSlashRE = /\/$/
 export const outboundRE = /^(https?:|mailto:|tel:)/
 
+export const PATHS = ['/', '/article/', '/category.html', '/article/index.html', '/index.html']
+
+export function formatDate (date) {
+  if (!date) {
+    return ''
+  } else {
+    const time = new Date(date)
+    const temp = (time.getMonth() + 1)
+    const month = temp < 10 ? '0' + temp : temp
+    return `${time.getFullYear()}/${month}/${time.getDate()}`
+  }
+}
+
+export function isArray (object) {
+  return object instanceof Array
+}
+
+export function archivePostsByCategory (posts, category) {
+  let postsMap = {}
+  posts.forEach(item => {
+    let categorys = item.frontmatter.categorys
+    if (categorys) {
+      categorys = (categorys instanceof Array) ? categorys.join(',') : categorys
+    } else {
+      categorys = ''
+    }
+    console.log(categorys)
+
+    if (category && categorys.indexOf(category) == -1) {
+      return
+    }
+
+    let year
+    if (item.frontmatter.date) {
+      year = item.frontmatter.date.substring(0, 4)
+    } else if (item.lastUpdated) {
+      year = new Date(item.lastUpdated).getFullYear()
+    }
+
+    if (postsMap[year]) {
+      postsMap[year].push(item)
+    } else {
+      postsMap[year] = [item]
+    }
+  })
+  return postsMap
+}
+
 export function normalize (path) {
   return decodeURI(path)
     .replace(hashRE, '')

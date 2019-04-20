@@ -1,5 +1,5 @@
 <template>
-  <div onloadedmetadata=""class="theme-container" :class="pageClasses" @touchstart="onTouchStart" @touchend="onTouchEnd">
+  <div onloadedmetadata="" class="theme-container" :class="pageClasses" @touchstart="onTouchStart" @touchend="onTouchEnd">
     <Navbar v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar" />
 
     <div class="sidebar-mask" @click="toggleSidebar(false)"></div>
@@ -17,7 +17,6 @@
     </Page>
 
     <Footerbar />
-
   </div>
 </template>
 

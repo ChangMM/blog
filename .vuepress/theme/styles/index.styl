@@ -10,13 +10,13 @@
   padding 0
   box-sizing: border-box;
 
-html, body
-  background-color #fff
+html
+  font-size 14px
 
 body
   font-family "Droid Serif",Georgia,"Times New Roman",STHeiti,serif
-  -webkit-font-smoothing antialiased
-  -moz-osx-font-smoothing grayscale
+  // -webkit-font-smoothing antialiased
+  // -moz-osx-font-smoothing grayscale
   font-size 14px
   line-height 1.5
   word-spacing 0.5px
@@ -26,12 +26,7 @@ body
   padding-left $sidebarWidth
 
 .navbar
-  position fixed
-  z-index 20
-  top 0
-  left 0
-  right 0
-  background-color #eee
+  background-color $bgColor
   border-bottom 1px solid $borderColor
 
 .sidebar-mask
@@ -56,6 +51,10 @@ body
   box-sizing border-box
   border-right 1px solid $borderColor
   overflow-y auto
+
+.inner-block
+  max-width $themeContainerWidth
+  margin 0 auto
 
 .content:not(.custom)
   @extend $wrapper
@@ -110,7 +109,6 @@ strong
   font-weight 600
 
 h1, h2, h3, h4, h5, h6
-  font-weight 600
   line-height 1.25
   .content:not(.custom) > &
     margin-top (0.5rem - $navbarHeight)
@@ -125,15 +123,21 @@ h1, h2, h3, h4, h5, h6
     opacity: 1
 
 h1
-  font-size 2.2rem
+  font-size 2rem
+  font-family 'Helvetica Neue', Helvetica, Arial, sans-serif
 
 h2
-  font-size 1.65rem
-  padding-bottom .3rem
-  border-bottom 1px solid $borderColor
+  font-size 1.5rem
+  font-family 'Helvetica Neue', Helvetica, Arial, sans-serif
+
 
 h3
-  font-size 1.35rem
+  font-size 1.3rem
+  font-family 'Helvetica Neue', Helvetica, Arial, sans-serif
+
+h4
+  font-size: 1.2rem
+  font-weight normal
 
 a.header-anchor
   font-size 0.85em

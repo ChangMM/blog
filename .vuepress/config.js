@@ -19,12 +19,15 @@ module.exports = {
   themeConfig: {
     logo: '/logo.png',
     search: true,
+    searchMaxSuggestions: 6,
+    displayAllHeaders: true,
+    lastUpdated: '上次修改时间',
     nav: [
       { text: '首页', link: '1' },
       { text: '酷站', link: '2' },
       { text: '福利', link: '3' },
       { text: 'Side Project', link: '4' },
-      { text: '关于', link: '5' },
+      { text: '关于', link: '/test' },
     ]
   }
 }

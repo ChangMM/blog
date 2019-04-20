@@ -16,13 +16,11 @@
 </template>
 
 <script>
-import AlgoliaSearchBox from '@AlgoliaSearchBox'
-import SearchBox from '@SearchBox'
 import SidebarButton from '@theme/components/SidebarButton.vue'
 import NavLinks from '@theme/components/NavLinks.vue'
 
 export default {
-  components: { SidebarButton, NavLinks, SearchBox, AlgoliaSearchBox },
+  components: { SidebarButton, NavLinks },
 
   data () {
     return {
@@ -44,15 +42,6 @@ export default {
     handleLinksWrapWidth()
     window.addEventListener('resize', handleLinksWrapWidth, false)
   }
-  // computed: {
-  //   algolia () {
-  //     return this.$themeLocaleConfig.algolia || this.$site.themeConfig.algolia || {}
-  //   },
-  //
-  //   isAlgoliaSearch () {
-  //     return this.algolia && this.algolia.apiKey && this.algolia.indexName
-  //   }
-  // }
 }
 
 function css (el, property) {
@@ -64,15 +53,12 @@ function css (el, property) {
 </script>
 
 <style lang="stylus">
-@require '../styles/config.styl'
 $inner-height = 20px
 
 .navbar
   padding 5px
   .inner-block
-    margin 0 auto
     position relative
-    max-width $contentWidth
   a, span, img
     display inline-block
   .home-link

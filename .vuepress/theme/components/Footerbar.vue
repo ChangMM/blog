@@ -1,10 +1,12 @@
 <template>
   <div id="footer">
     <p>
-      <span class="copyright">Copyright ©2016-{{year}} All Right Reserved. </span>
+      <span class="copyright">© 2017-{{year}} Sakamoto 保留权利. 鄂ICP备12009978号-4. </span>
+      |
+      <span>总访问量：122434</span>
+      |
       <NavLink v-for="item in links" class="friend-link" :item="item" :key="item.link" />
     </p>
-    <p>鄂ICP备12009978号-4.</p>
   </div>
 </template>
 <script>
