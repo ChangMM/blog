@@ -3,7 +3,7 @@
     <Navbar />
     <div class="header-wrap">
       <div class="inner-block">
-        <h2 class="name">文章归档</h2>
+        <h2 class="name">归档</h2>
         <p class="intro">種一棵樹最好的時間是十年前，其次是現在。</p>
         <SearchBox class="search-box" v-if="$site.themeConfig.search !== false && $page.frontmatter.search !== false"/>
       </div>

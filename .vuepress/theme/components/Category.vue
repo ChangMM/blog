@@ -1,41 +1,31 @@
 <template>
   <div class="category-wrap">
-    <template v-if="categorys.length > 0">
+    <template>
       <h4>文章分类</h4>
       <ul>
-        <li v-for="item in categorys">{{item}}</li>
+        <li v-for="_,key in $categorys" :key="key">
+          <router-link class="category-item" :to="{ path: '/category/' + key }">
+            <span class="category-text">{{key}}</span>
+          </router-link>
+        </li>
       </ul>
     </template>
   </div>
 </template>
 <script>
-import { isArray, PATHS } from '../util'
 export default {
-  computed: {
-    categorys () {
-      let array = []
-      this.$site.pages.forEach(item => {
-        if (!PATHS.includes(item.path)) {
-          let categorys = item.frontmatter.categorys
-          if (categorys && isArray(categorys)) {
-            array = array.concat(categorys)
-          } else if (categorys) {
-            array.push(categorys)
-          }
-        }
-      })
-      return [...new Set(array)]
-    },
+  data () {
+    return {}
   }
 }
 </script>
 <style lang="stylus" scoped>
 .category-wrap
   h4
-    font-size 1rem
+    font-size 1.2rem
     display inline-block
     padding-bottom 4px
-    border-bottom 2px solid $textColor
+    border-bottom 2px solid $borderColor
   ul
     padding 10px 15px
     li

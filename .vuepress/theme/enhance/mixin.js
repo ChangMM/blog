@@ -9,19 +9,19 @@ const install = (Vue, { pages }) => {
       return false
     }
     return item.path.indexOf('/article/') > -1
-  }).map(item => {
+  }).sort((item1, item2) => {
+      return item2.frontmatter.date.replace(/\//g, '').replace(/-/g, '') - item1.frontmatter.date.replace(/\//g, '').replace(/-/g, '')
+  }).map((item, index)=> {
     if (item.frontmatter.categorys instanceof String) {
       item.frontmatter.categorys = [item.frontmatter.categorys]
     }
-
     if (item.frontmatter.tags instanceof String) {
       item.frontmatter.tags = [item.frontmatter.tags]
     }
+    item.index = index
     return item
   })
-  .sort((item1, item2) => {
-    return item2.frontmatter.date.replace(/\//g, '').replace(/-/g, '') - item1.frontmatter.date.replace(/\//g, '').replace(/-/g, '')
-  })
+
 
   posts.forEach(item => {
     if (item.frontmatter.top !== undefined) {

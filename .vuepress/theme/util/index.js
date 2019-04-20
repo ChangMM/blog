@@ -29,7 +29,6 @@ export function archivePostsByCategory (posts, category) {
     } else {
       categorys = ''
     }
-    console.log(categorys)
 
     if (category && categorys.indexOf(category) == -1) {
       return

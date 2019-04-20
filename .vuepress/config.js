@@ -22,6 +22,9 @@ module.exports = {
     searchMaxSuggestions: 6,
     displayAllHeaders: true,
     lastUpdated: '上次修改时间',
+    editLinks: true,
+    editLinkText: 'Github修改此页面',
+    repo: 'ChangMM/blog',
     nav: [
       { text: '首页', link: '1' },
       { text: '酷站', link: '2' },
