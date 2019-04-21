@@ -56,11 +56,15 @@ body
   text-align justify
   h1, h2, h3, h4, h5, h6
     margin-top 1.1rem
-    margin-bottom 0.6rem
+    margin-bottom 0.9rem
     &:hover .header-anchor
       opacity: 1
   p, ul, ol
-    margin-bottom 0.6rem
+    margin-bottom 0.7rem
+
+  ul, ol
+    ul, ol
+      margin-bottom 0
   a
     border-bottom 1px dashed #ddd
     &:hover
@@ -71,6 +75,7 @@ body
     border-radius 4px
   img
     max-width 100%
+    border-radius 4px
 
 a
   font-weight 500

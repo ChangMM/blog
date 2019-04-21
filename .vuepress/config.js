@@ -26,11 +26,12 @@ module.exports = {
     editLinkText: 'Github修改此页面',
     repo: 'ChangMM/blog',
     nav: [
-      { text: '首页', link: '1' },
-      { text: '酷站', link: '2' },
-      { text: '福利', link: '3' },
-      { text: 'Side Project', link: '4' },
-      { text: '关于', link: '/test' },
+      { text: '博客', link: '' },
+      { text: '每日一文', link: '' },
+      { text: '新标签页插件', link: '' },
+      { text: '电子书下载', link: '' },
+      { text: '视频下载器', link: '' },
+      { text: '图片编辑器', link: '' }
     ]
   }
 }

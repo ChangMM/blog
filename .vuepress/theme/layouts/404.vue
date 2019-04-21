@@ -1,26 +1,27 @@
 <template>
   <div class="theme-container">
+    <Navbar />
     <div class="content">
-      <h1>404</h1>
-      <blockquote>{{ getMsg() }}</blockquote>
-      <router-link to="/">Take me home.</router-link>
+      <img src="/404.png" alt="">
+      <h1> 404，该页面暂时出错</h1>
+      <p><router-link to="/">回首页</router-link></p>
     </div>
   </div>
 </template>
 
 <script>
-const msgs = [
-  `There's nothing here.`,
-  `How did we get here?`,
-  `That's a Four-Oh-Four.`,
-  `Looks like we've got some broken links.`
-]
+import Navbar from '@theme/components/Navbar.vue'
 
 export default {
-  methods: {
-    getMsg () {
-      return msgs[Math.floor(Math.random() * msgs.length)]
-    }
-  }
+  components: { Navbar }
 }
 </script>
+
+<style lang="stylus" scoped>
+.content
+  max-width 300px
+  margin 20px auto
+  text-align center
+  img
+    width 200px
+</style>

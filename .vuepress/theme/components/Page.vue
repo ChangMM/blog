@@ -145,6 +145,7 @@ export default {
   .last-updated
     float right
     font-size 0.9em
+    width 220px
     .prefix
       font-weight 500
       color lighten($textColor, 25%)

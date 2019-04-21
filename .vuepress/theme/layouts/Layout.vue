@@ -125,7 +125,6 @@ export default {
       position relative
       display flex
       padding-top 20px
-      padding-bottom 20px
       justify-content space-between
       .left-side
         width 740px
