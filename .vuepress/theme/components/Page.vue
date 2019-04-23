@@ -3,6 +3,7 @@
     <slot name="top"/>
     <PostHeader :post="post" />
     <Content/>
+    <Copyright />
 
     <footer class="page-edit">
       <div class="edit-link" v-if="editLink">
@@ -11,8 +12,7 @@
       </div>
 
       <div class="last-updated" v-if="lastUpdated">
-        <span class="prefix">{{ lastUpdatedText }}: </span>
-        <span class="time">{{ lastUpdated }}</span>
+        <span class="prefix">{{ lastUpdatedText }}:{{ lastUpdated }}</span>
       </div>
     </footer>
 
@@ -35,10 +35,11 @@
 
 <script>
 import PostHeader from '@theme/components/PostHeader'
+import Copyright from '@theme/components/Copyright'
 import { outboundRE, endingSlashRE } from '../util'
 
 export default {
-  components: { PostHeader },
+  components: { PostHeader, Copyright },
   computed: {
     post () {
       return this.$page
@@ -137,15 +138,16 @@ export default {
   padding-top 1rem
   padding-bottom 1rem
   overflow auto
+  display flex
+  justify-content space-between
   .edit-link
     display inline-block
     a
       color lighten($textColor, 25%)
-      margin-right 0.25rem
   .last-updated
-    float right
+    display inline-block
+    /* float right */
     font-size 0.9em
-    width 220px
     .prefix
       font-weight 500
       color lighten($textColor, 25%)
