@@ -4,7 +4,7 @@
       <img src="/wechatpay.png" class="wechat qrcode" alt="微信赞赏">
       <img src="/alipay.png" class="alipay qrcode" alt="支付宝赞赏">
     </div>
-    <span class="zan-button" @click="zan">赞赏作者</span>
+    <span class="zan-button" ref="button" @click="zan">赞赏作者</span>
   </div>
 </template>
 <script>
@@ -15,6 +15,9 @@ export default {
   methods: {
     zan() {
       this.show = !this.show
+      if (this.show) { // 展开后该按钮是出现在视野中的
+        this.$refs.button.scrollIntoView()
+      }
     }
   }
 }

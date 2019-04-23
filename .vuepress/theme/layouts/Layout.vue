@@ -127,7 +127,7 @@ export default {
       padding-top 20px
       justify-content space-between
       .left-side
-        width 740px
+        width 760px
       .right-side
         width 240px
 </style>
