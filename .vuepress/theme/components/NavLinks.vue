@@ -1,6 +1,6 @@
 <template>
   <nav class="nav-links" v-if="userLinks.length">
-    <div class="nav-item" v-for="item in userLinks" :key="item.link">
+    <div class="nav-item" v-for="item,index in userLinks" :key="item.link+index">
       <DropdownLink v-if="item.type === 'links'" :item="item"/>
       <NavLink v-else :item="item"/>
     </div>
@@ -67,7 +67,7 @@ export default {
   display inline-block
   a
     color inherit
-    transation all ease 0.3s
+    transition all ease 0.3s
     &:hover, &.router-link-active
       color $accentColor
       text-decoration none

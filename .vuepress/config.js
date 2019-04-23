@@ -26,12 +26,11 @@ module.exports = {
     editLinkText: 'Github修改此页面',
     repo: 'ChangMM/blog',
     nav: [
-      { text: '博客', link: '' },
-      { text: '每日一文', link: '' },
-      { text: '新标签页插件', link: '' },
-      { text: '电子书下载', link: '' },
-      { text: '视频下载器', link: '' },
-      { text: '图片编辑器', link: '' }
+      { text: '个人博客', link: 'https://www.iizhi.cn' },
+      { text: '每日一文', link: 'https://www.iizhi.cn' },
+      { text: '新标签页插件', link: 'https://www.iizhi.cn' },
+      { text: '精品电子书', link: 'https://www.iizhi.cn' },
+      { text: '视频下载器', link: 'https://www.iizhi.cn' }
     ]
   }
 }
