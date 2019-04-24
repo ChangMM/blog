@@ -4,25 +4,34 @@
   </div>
 </template>
 <script>
+const checkValine = () => {
+  if (window.Valine) {
+    new Valine({
+      appId: 'Olf3zqnXyrLW8oQPjVbBJpfN-gzGzoHsz',
+      appKey: '9XOKcIB80L7DKcKUiYQ2paY0',
+      el: '#comment',
+      placeholder: '评论在此',
+      avatar: 'monsterid',
+      recordIP: true,
+      visitor: true
+    })
+  } else {
+    setTimeout(checkValine, 50)
+  }
+}
+
 export default {
   props: ['show'],
+  watch: {
+    '$route': 'refresh'
+  },
   mounted () {
-    const checkValine = () => {
-      if (window.Valine) {
-        new Valine({
-          appId: 'Olf3zqnXyrLW8oQPjVbBJpfN-gzGzoHsz',
-          appKey: '9XOKcIB80L7DKcKUiYQ2paY0',
-          el: '#comment',
-          placeholder: '评论在此',
-          avatar: 'monsterid',
-          recordIP: true,
-          visitor: true
-        })
-      } else {
-        setTimeout(checkValine, 50)
-      }
-    }
     checkValine()
+  },
+  methods: {
+    refresh () {
+      checkValine()
+    }
   }
 }
 </script>
