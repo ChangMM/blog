@@ -6,7 +6,6 @@
         <h2 class="name">明明三省</h2>
         <p class="intro">布谷鳥在城市的上空，孤獨的叫著就像我的歌。</p>
         <SearchBox class="search-box" v-if="$site.themeConfig.search !== false && $page.frontmatter.search !== false"/>
-        <!-- <AlgoliaSearchBox v-if="isAlgoliaSearch" :options="algolia"/> -->
       </div>
     </div>
     <div class="content-wrap">
@@ -127,7 +126,7 @@ export default {
       padding-top 20px
       justify-content space-between
       .left-side
-        width 760px
+        width 780px
       .right-side
         width 240px
 </style>

@@ -19,14 +19,17 @@
       <p class="inner">
         <span v-if="prev" class="prev">
           上一篇:
-          <router-link class="prev" :to="prev.path">{{ prev.frontmatter.title || prev.path }}</router-link>
+          <router-link :to="prev.path" :title="prev.frontmatter.title">{{ prev.frontmatter.title || prev.path }}</router-link>
         </span>
         <span v-if="next" class="next">
           下一篇:
-          <router-link :to="next.path">{{ next.frontmatter.title || next.path }}</router-link>
+          <router-link :to="next.path" :title="next.frontmatter.title">{{ next.frontmatter.title || next.path }}</router-link>
         </span>
       </p>
     </div>
+    <ClientOnly>
+      <CommentBar :show="true" />
+    </ClientOnly>
     <slot name="bottom"/>
   </main>
 </template>
@@ -34,10 +37,11 @@
 <script>
 import PostHeader from '@theme/components/PostHeader'
 import Copyright from '@theme/components/Copyright'
+import CommentBar from '@theme/components/Comment'
 import { outboundRE, endingSlashRE } from '../util'
 
 export default {
-  components: { PostHeader, Copyright },
+  components: { PostHeader, Copyright, CommentBar },
   computed: {
     post () {
       return this.$page
@@ -160,6 +164,12 @@ export default {
     overflow auto // clear float
   a
     border-bottom 1px dashed #ddd
+  .prev,.next
+    display inline-block
+    max-width: 340px
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
   .next
     float right
 

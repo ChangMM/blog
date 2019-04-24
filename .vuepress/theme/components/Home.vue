@@ -5,15 +5,16 @@
       <PostItem v-for="item in $tops" :post="item" :top='true' :key="item.key + item.frontmatter.title" />
       <PostItem v-for="item in $posts" :post="item" :top='false' :key="item.key" />
     </div>
+    <ClientOnly>
+      <CommentBar :show="false"/>
+    </ClientOnly>
   </main>
 </template>
 
 <script>
-import PostItem from '@theme/components/PostItem.vue'
+import PostItem from '@theme/components/PostItem'
+import CommentBar from '@theme/components/Comment'
 export default {
-  mounted() {
-    console.log(this.$posts)
-  },
-  components: { PostItem },
+  components: { PostItem, CommentBar },
 }
 </script>

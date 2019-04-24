@@ -23,6 +23,11 @@
         标签:
         <span class="tag-item em" v-for="item in post.frontmatter.tags">{{item}}</span>
       </span>
+      |
+      <span :id="post.path" class="leancloud-visitors" data-flag-title="Your Article Title">
+        阅读量:
+        <i class="leancloud-visitors-count em"></i>
+      </span>
     </div>
   </div>
 </template>
@@ -52,13 +57,15 @@ export default {
     font-size 0.8rem
     color: #999
     .post-meta-item
-      padding-left 5px
-      padding-right 5px
+      /* padding-left 5px */
+      /* padding-right 5px */
       &:first-child
         padding-left 0
     .em
       color $accentColor
       border-bottom 1px dashed #ddd
+    leancloud-visitors
+      font-style normal
   .categorys, .tags
     .tag-item, .category-item
       margin-right 6px
