@@ -3,7 +3,7 @@ author: sakamoto
 categorys: [数据库]
 tags: [mysql]
 date: 2019/04/24
-title: 在 linux 上安装 mysql(5.7.25版本)后初始化密码。
+title: 在linux上安装mysql(5.7.25版本)后初始化密码。
 excerpt: 这个问题网上有很多文章，提供了很多种解法，但大部分都是不能用的，极有可能是版本的问题，由于我没在这方面研究很深，也没有深究，下面只是提供一个可行的方法。
 ---
 使用 `sudo apt install mysql-server` 方法安装的 MySQL 服务，安装之后没有临时密码的日志，想着直接修改root密码，但是尝试了很多网上的方法，但是都无法生效，包括

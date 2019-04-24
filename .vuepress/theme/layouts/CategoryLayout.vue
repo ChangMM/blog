@@ -80,6 +80,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+$width = 960px
 .category-container
   .header-wrap
     border-bottom 1px solid #eee
@@ -97,7 +98,7 @@ export default {
       top 10px
       right 0
   .category-wrap
-    max-width 900px
+    max-width $width
     margin 20px auto
     background-color $bgColor
     padding 40px
@@ -116,7 +117,7 @@ export default {
       .category-text
         border-bottom 1px dashed #ccc
   .archive-wrap
-    max-width 900px
+    max-width $width
     margin 20px auto
     .header
       text-align center
