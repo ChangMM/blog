@@ -27,7 +27,7 @@
             <span class="meta-info">
               (
               <span class="time">
-                <time >{{ post.frontmatter.date }}</time>
+                <time >{{ post.publishDate | toLocaleString }}</time>
               </span>
               |
               <span class="categorys" v-if="post.frontmatter.categorys && post.frontmatter.categorys.length > 0">
@@ -97,7 +97,7 @@ export default {
       top 10px
       right 0
   .category-wrap
-    max-width 800px
+    max-width 900px
     margin 20px auto
     background-color $bgColor
     padding 40px
@@ -116,7 +116,7 @@ export default {
       .category-text
         border-bottom 1px dashed #ccc
   .archive-wrap
-    max-width 800px
+    max-width 900px
     margin 20px auto
     .header
       text-align center

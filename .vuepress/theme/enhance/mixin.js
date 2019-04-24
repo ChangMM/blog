@@ -5,12 +5,12 @@ const install = (Vue, { pages }) => {
   let categorysMap = {}
   let top = []
   const posts = pages.filter(item => {
-    if (!item.frontmatter.lastUpdated && !item.frontmatter.date) {
+    if (item.frontmatter.title === undefined) {
       return false
     }
     return item.path.indexOf('/article/') > -1
   }).sort((item1, item2) => {
-      return item2.frontmatter.date.replace(/\//g, '').replace(/-/g, '') - item1.frontmatter.date.replace(/\//g, '').replace(/-/g, '')
+      return new Date(item2.publishDate).getTime() - new Date(item1.publishDate).getTime()
   }).map((item, index)=> {
     if (item.frontmatter.categorys instanceof String) {
       item.frontmatter.categorys = [item.frontmatter.categorys]

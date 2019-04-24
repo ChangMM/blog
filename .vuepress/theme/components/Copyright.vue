@@ -1,10 +1,10 @@
 <template>
   <div id="copyright-info">
     <p><span>作者：</span>{{post.frontmatter.author}}</p>
-    <p><span>发表日期：</span>{{post.frontmatter.date}}</p>
+    <p><span>发表日期：</span>{{ post.publishDate | toLocaleString }}</p>
     <p><span>最后编辑时间：</span>{{post.lastUpdated}}</p>
     <p><span>本文 Github 地址：</span><a :href="editLink" target="_blank" rel="noopener noreferrer">{{ post.relativePath }}</a><OutboundLink/></p>
-    <p><span>本文链接：</span><a :href="location.origin + post.path" target="_blank" rel="noopener noreferrer">{{ location.origin + post.path }}</a><OutboundLink/></p>
+    <p><span>本文链接：</span><a :href="location.origin + post.path" target="_blank" rel="noopener noreferrer">{{ location.origin + decodeURIComponent(post.path) }}</a><OutboundLink/></p>
     <p><span>版权声明：本文为自己原创，未经允许，禁止转载。</span></p>
   </div>
 </template>

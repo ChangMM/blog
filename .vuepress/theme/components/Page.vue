@@ -5,7 +5,7 @@
     <Content/>
     <ClientOnly>
       <Copyright />
-    <ClientOnly />
+    </ClientOnly>
     <footer class="page-edit">
       <div class="edit-link" v-if="editLink">
         <a :href="editLink" target="_blank" rel="noopener noreferrer">{{ editLinkText }}</a>
@@ -68,7 +68,6 @@ export default {
       if (next === false || this.$page.index >= this.$posts.length - 1) {
         return
       } else {
-        console.log(this.$posts[this.$page.index + 1])
         return this.$posts[this.$page.index + 1]
       }
     },

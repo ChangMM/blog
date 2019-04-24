@@ -11,6 +11,9 @@
 <script>
 import PostItem from '@theme/components/PostItem.vue'
 export default {
+  mounted() {
+    console.log(this.$posts)
+  },
   components: { PostItem },
 }
 </script>

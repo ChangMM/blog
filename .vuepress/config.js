@@ -7,6 +7,9 @@ module.exports = {
     ['meta', { name: 'keywords', content: '全栈开发，前端开发，后端开发，技术，产品，赚钱，读书，电影，音乐'}],
     ['link', { rel: 'icon', href: '/favicon.png'}]
   ],
+  plugins: [
+    require('./plugins/page-publish-date.js')
+  ],
   markdown: {
    config: md => {
      md.set({ breaks: true })
