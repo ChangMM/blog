@@ -4,14 +4,17 @@
   </div>
 </template>
 <script>
+let valine = null
 const checkValine = () => {
   if (window.Valine) {
-    new Valine({
+    document.getElementById("comment").innerHTML = ''
+    valine = new Valine({
       appId: 'Olf3zqnXyrLW8oQPjVbBJpfN-gzGzoHsz',
       appKey: '9XOKcIB80L7DKcKUiYQ2paY0',
       el: '#comment',
       placeholder: '评论在此',
       avatar: 'monsterid',
+      path: window.location.pathname,
       recordIP: true,
       visitor: true
     })
