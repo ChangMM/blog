@@ -1,7 +1,7 @@
 <template>
   <div id="footer">
     <p>
-      <span class="copyright">© 2017-{{year}} Sakamoto 保留权利. 鄂ICP备12009978号-4. </span>
+      <span class="copyright">© 2017-{{year}} Sakamoto 保留权利. 豫ICP备19013762号-1. </span>
       |
       <NavLink v-for="item in links" class="friend-link" :item="item" :key="item.link" />
     </p>
@@ -17,8 +17,12 @@ export default {
     year: new Date().getFullYear(),
     links: [
       {
-        text: '冰岩作坊',
-        link: 'https://www.bingyan.net'
+        text: 'Github',
+        link: 'https://github.com/ChangMM'
+      },
+      {
+        text: '微博',
+        link: 'https://weibo.com/3897687414'
       }
     ]
   })
@@ -31,4 +35,5 @@ export default {
   text-align center
   .friend-link
     margin-left 6px
+    border-bottom: 1px dashed $borderColor
 </style>

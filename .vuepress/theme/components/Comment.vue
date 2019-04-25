@@ -7,7 +7,6 @@
 let valine = null
 const checkValine = () => {
   if (window.Valine) {
-    document.getElementById("comment").innerHTML = ''
     valine = new Valine({
       appId: 'Olf3zqnXyrLW8oQPjVbBJpfN-gzGzoHsz',
       appKey: '9XOKcIB80L7DKcKUiYQ2paY0',

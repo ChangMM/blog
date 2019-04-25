@@ -24,7 +24,7 @@
         <span class="tag-item em" v-for="item in post.frontmatter.tags">{{item}}</span>
       </span>
       |
-      <span :id="post.path" class="leancloud-visitors" data-flag-title="Your Article Title">
+      <span :id="post.path" class="leancloud-visitors" :data-flag-title="post.title">
         阅读量:
         <i class="leancloud-visitors-count em"></i>
       </span>
