@@ -8,9 +8,7 @@
         <span ref="siteName" class="site-name" v-if="$siteTitle" :class="{ 'can-hide': $site.themeConfig.logo }">{{ $siteTitle }}</span>
       </router-link>
 
-      <div class="links" :style="linksWrapMaxWidth ? { 'max-width': linksWrapMaxWidth + 'px' } : {}">
-        <NavLinks class="can-hide"/>
-      </div>
+      <NavLinks class="can-hide links"/>
     </div>
   </header>
 </template>
@@ -91,11 +89,4 @@ $inner-height = 20px
       flex: 0 0 auto
       vertical-align top
 
-@media (max-width: $MQMobile)
-  .navbar
-    padding-left 4rem
-    .can-hide
-      display none
-    .links
-      padding-left 1.5rem
 </style>
