@@ -50,8 +50,12 @@ body
   overflow-y auto
 
 .inner-block
-  max-width $themeContainerWidth
+  width $themeContainerWidth
   margin 0 auto
+
+@media (max-width: $MQMobile)
+  .inner-block
+    width 100%
 
 .content
   text-align justify

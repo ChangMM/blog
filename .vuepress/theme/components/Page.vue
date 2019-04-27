@@ -147,7 +147,6 @@ export default {
       color lighten($textColor, 25%)
   .last-updated
     display inline-block
-    /* float right */
     font-size 0.9em
     .prefix
       font-weight 500
@@ -173,4 +172,14 @@ export default {
   .next
     float right
 
+@media (max-width: $MQMobile)
+  .page-edit
+    display: none;
+  .page-nav
+    .next, .prev
+      display: block;
+      text-align: center;
+      max-width: 100%;
+      float: none
+      margin-top: 5px;
 </style>

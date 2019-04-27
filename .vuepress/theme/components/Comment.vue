@@ -41,6 +41,9 @@ export default {
 .comment-page {
   margin-top: 30px;
   #comment {
+    * {
+      line-height: 1.5;
+    }
     .vheader {
       .vinput:focus {
         border-bottom-color: $accentColor;
@@ -66,16 +69,28 @@ export default {
       }
     }
     .vcard {
-      .vnick {
+      padding-top: 0;
+      .vnick,.at {
         color: $accentColor;
+        margin-right: 0;
+        font-size: 1rem;
         &:before {
           background-color: $accentColor;
         }
+      }
+      .vsys {
+        margin-right: 0
+        padding: 0 0.2rem
       }
       .vmeta {
         .vat {
           color: $accentColor;
         }
+      }
+      .vcontent {
+        font-size: 1rem;
+        padding-top: 0;
+        margin-bottom: 0;
       }
     }
     .info {

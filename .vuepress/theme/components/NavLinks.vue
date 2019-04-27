@@ -64,7 +64,6 @@ export default {
 
 <style lang="stylus">
 .nav-links
-  display inline-block
   a
     color inherit
     transition all ease 0.3s
@@ -74,13 +73,19 @@ export default {
       margin-bottom -2px
       border-bottom 2px solid lighten($accentColor, 8%)
   .nav-item
-    position relative
     display inline-block
     margin-left 1.5rem
     height 20px;
     line-height 20px;
     &:first-child
       margin-left 0
-  .repo-link
-    margin-left 1.5rem
+@media (max-width: $MQMobile)
+  .nav-links
+    .nav-item
+      display: block;
+      margin-left: 0;
+      margin-bottom: 10px
+      &:last-child {
+        margin-bottom: 0;
+      }
 </style>

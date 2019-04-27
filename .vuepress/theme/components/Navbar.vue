@@ -1,14 +1,14 @@
 <template>
   <header class="navbar">
     <div class="inner-block">
-      <!-- <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')"/> -->
-
       <a class="home-link" href="https://www.iizhi.cn">
         <img class="logo" v-if="$site.themeConfig.logo" :src="$withBase($site.themeConfig.logo)" :alt="$siteTitle">
-        <span ref="siteName" class="site-name" v-if="$siteTitle" :class="{ 'can-hide': $site.themeConfig.logo }">{{ $siteTitle }}</span>
+        <span ref="siteName" class="site-name" v-if="$siteTitle">{{ $siteTitle }}</span>
       </a>
 
-      <NavLinks class="can-hide links"/>
+      <SidebarButton @toggle-menu="$emit('toggle-menu')"/>
+
+      <NavLinks class="nav-links"/>
     </div>
   </header>
 </template>
@@ -22,37 +22,17 @@ export default {
 
   data () {
     return {
-      linksWrapMaxWidth: null
     }
   },
 
   mounted () {
-    const MOBILE_DESKTOP_BREAKPOINT = 719 // refer to config.styl
-    const NAVBAR_VERTICAL_PADDING = parseInt(css(this.$el, 'paddingLeft')) + parseInt(css(this.$el, 'paddingRight'))
-    const handleLinksWrapWidth = () => {
-      if (document.documentElement.clientWidth < MOBILE_DESKTOP_BREAKPOINT) {
-        this.linksWrapMaxWidth = null
-      } else {
-        this.linksWrapMaxWidth = this.$el.offsetWidth - NAVBAR_VERTICAL_PADDING
-          - (this.$refs.siteName && this.$refs.siteName.offsetWidth || 0)
-      }
-    }
-    handleLinksWrapWidth()
-    window.addEventListener('resize', handleLinksWrapWidth, false)
-  }
-}
 
-function css (el, property) {
-  // NOTE: Known bug, will return 'auto' if style value is 'auto'
-  const win = el.ownerDocument.defaultView
-  // null means not to return pseudo styles
-  return win.getComputedStyle(el, null)[property]
+  }
 }
 </script>
 
 <style lang="stylus">
 $inner-height = 20px
-
 .navbar
   padding 5px
   .inner-block
@@ -77,16 +57,27 @@ $inner-height = 20px
     line-height $inner-height
     color $accentColor
     position relative
-  .links
-    padding-left 1.5rem
-    white-space nowrap
+  .nav-links
     font-size 0.9rem
     position absolute
-    right 10px
+    display: flex;
+    right 0
     top 0
-    display flex
-    .search-box
-      flex: 0 0 auto
-      vertical-align top
-
+@media (max-width: $MQMobile)
+  .navbar
+    .nav-links
+      display: none;
+      top: 0
+      right: 30px
+      padding: 10px;
+      background-color: #fff;
+      z-index: 10
+      text-align: center;
+      border-radius: 2px
+      box-shadow: -1px -1px 3px rgba(39, 44, 49, 0.1),
+        1px 1px 10px rgba(39, 44, 49, 0.1);
+  .menu-open
+    .navbar
+      .nav-links
+        display: block;
 </style>

@@ -1,13 +1,7 @@
 <template>
-  <div class="theme-container" :class="pageClasses" @touchstart="onTouchStart" @touchend="onTouchEnd">
-    <Navbar v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar" />
-    <div class="slogan-wrap">
-      <div class="inner-block">
-        <h2 class="name">明明三省</h2>
-        <p class="intro">布谷鳥在城市的上空，孤獨的叫著就像我的歌。</p>
-        <SearchBox class="search-box" v-if="$site.themeConfig.search !== false && $page.frontmatter.search !== false"/>
-      </div>
-    </div>
+  <div class="theme-container" :class="pageClasses">
+    <Navbar @toggle-menu="toggleMenu" />
+    <Slogan />
     <div class="content-wrap">
       <div class="inner-block">
         <div class="left-side">
@@ -31,40 +25,22 @@ import Home from '@theme/components/Home.vue'
 import Navbar from '@theme/components/Navbar.vue'
 import Page from '@theme/components/Page.vue'
 import Footerbar from '@theme/components/Footerbar.vue'
-import SearchBox from '@theme/components/SearchBox'
 import Category from '@theme/components/Category.vue'
+import Slogan from '@theme/components/Slogan.vue'
 
 export default {
-  components: { Home, Page, SearchBox, Navbar, Footerbar, Category },
+  components: { Home, Page, Navbar, Footerbar, Category, Slogan },
   data () {
     return {
-      isSidebarOpen: false
+      isMenuOpen: false
     }
   },
   computed: {
-    shouldShowNavbar () {
-      const { themeConfig } = this.$site
-      const { frontmatter } = this.$page
-      if (
-        frontmatter.navbar === false
-        || themeConfig.navbar === false) {
-        return false
-      }
-      return (
-        this.$title
-        || themeConfig.logo
-        || themeConfig.repo
-        || themeConfig.nav
-        || this.$themeLocaleConfig.nav
-      )
-    },
     pageClasses () {
       const userPageClass = this.$page.frontmatter.pageClass
       return [
         {
-          'no-navbar': !this.shouldShowNavbar,
-          'sidebar-open': this.isSidebarOpen,
-          'no-sidebar': !this.shouldShowSidebar
+          'menu-open': this.isMenuOpen
         },
         userPageClass
       ]
@@ -72,53 +48,18 @@ export default {
   },
   mounted () {
     this.$router.afterEach(() => {
-      this.isSidebarOpen = false
+      this.isMenuOpen = false
     })
   },
   methods: {
-    toggleSidebar (to) {
-      this.isSidebarOpen = typeof to === 'boolean' ? to : !this.isSidebarOpen
-    },
-
-    // side swipe
-    onTouchStart (e) {
-      this.touchStart = {
-        x: e.changedTouches[0].clientX,
-        y: e.changedTouches[0].clientY
-      }
-    },
-
-    onTouchEnd (e) {
-      const dx = e.changedTouches[0].clientX - this.touchStart.x
-      const dy = e.changedTouches[0].clientY - this.touchStart.y
-      if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
-        if (dx > 0 && this.touchStart.x <= 80) {
-          this.toggleSidebar(true)
-        } else {
-          this.toggleSidebar(false)
-        }
-      }
+    toggleMenu (to) {
+      this.isMenuOpen = typeof to === 'boolean' ? to : !this.isMenuOpen
     }
   }
 }
 </script>
 <style lang="stylus" scoped>
 .theme-container
-  .slogan-wrap
-    border-bottom 1px solid #eee
-    padding 40px 0
-    .inner-block
-      position relative
-    .name
-      font-size 2rem
-      font-weight normal
-    .intro
-      color #666
-      font-style italic
-    .search-box
-      position absolute
-      top 10px
-      right 0
   .content-wrap
     .inner-block
       position relative
@@ -129,6 +70,16 @@ export default {
         width 780px
       .right-side
         width 240px
+
+@media (max-width: $MQMobile)
+  .theme-container
+    .content-wrap
+      .inner-block
+        padding: 20px 10px 0
+        .left-side
+          width: 100%;
+        .right-side
+          display: none
 </style>
 
 <style src="prismjs/themes/prism-tomorrow.css"></style>
