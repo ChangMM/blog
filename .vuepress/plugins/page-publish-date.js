@@ -9,7 +9,7 @@ module.exports = (options = {}, context) => ({
 function getFilePublishDate (filePath) {
   let publishDate
   try {
-    publishDate = fs.statSync(filePath).ctime
+    publishDate = fs.statSync(filePath).birthtime
   } catch (e) { /* do not handle for now */ }
   return publishDate
 }

@@ -2,9 +2,10 @@
   <div id="zanshang">
     <div class="pay-wrap" v-if="show" :class="{'show': show}">
       <img src="/wechatpay.png" class="wechat qrcode" alt="微信赞赏">
-      <img src="/alipay.png" class="alipay qrcode" alt="支付宝赞赏">
+      <!-- <img src="/alipay.png" class="alipay qrcode" alt="支付宝赞赏"> -->
+      <p class="note">打赏，是最好的赞赏。</p>
     </div>
-    <span class="zan-button" ref="button" @click="zan">赞赏作者</span>
+    <span class="zan-button" ref="button" @click="zan">微信赞赏作者</span>
   </div>
 </template>
 <script>
@@ -27,13 +28,9 @@ export default {
   margin: 20px auto;
   text-align: center;
   .pay-wrap {
-    margin: 0 auto;
     visibility: hidden;
     opacity: 0;
-    width: 494px;
-    padding: 20px;
     transition: all ease 0.3s;
-    font-size: 0;
     &.show {
       visibility: visible;
       opacity: 1;

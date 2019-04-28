@@ -34,8 +34,8 @@ module.exports = {
       { text: '个人博客', link: 'https://blog.iizhi.cn' },
       { text: '每日系列', link: 'https://www.iizhi.cn/daily' },
       { text: '新标签页插件', link: 'https://www.iizhi.cn/newtab' },
-      { text: '精品电子书', link: 'https://www.iizhi.cn/ebooks' },
-      { text: '视频下载器', link: 'https://www.iizhi.cn/download' }
+      // { text: '精品电子书', link: 'https://www.iizhi.cn/ebooks' },
+      { text: 'Scihub', link: 'https://www.iizhi.cn/scihub' }
     ]
   }
 }

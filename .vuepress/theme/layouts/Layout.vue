@@ -59,6 +59,8 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
+@import '../styles/config.styl';
+
 .theme-container
   .content-wrap
     .inner-block
@@ -67,9 +69,9 @@ export default {
       padding-top 20px
       justify-content space-between
       .left-side
-        width 780px
+        width $contentWidth
       .right-side
-        width 240px
+        width $themeContainerWidth - $contentWidth - 100px
 
 @media (max-width: $MQMobile)
   .theme-container
