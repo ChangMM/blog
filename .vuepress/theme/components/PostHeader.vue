@@ -11,7 +11,7 @@
       |
       <span class="time post-meta-item">
         时间:
-        <time >{{ post.publishDate | toLocaleString }}</time>
+        <time >{{ post.publishDate | toLocaleString | formatLocaleString }}</time>
       </span>
       |
       <span class="categorys post-meta-item" v-if="post.frontmatter.categorys && post.frontmatter.categorys.length > 0">

@@ -21,7 +21,6 @@ const checkValine = () => {
     setTimeout(checkValine, 50)
   }
 }
-
 export default {
   props: ['show'],
   watch: {
