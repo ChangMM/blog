@@ -48,3 +48,4 @@ mysql> SET GLOBAL validate_password_policy=0;
 ```bash
 sudo service mysql restart
 ```
+<ZanShang />
