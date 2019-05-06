@@ -1,6 +1,6 @@
 module.exports = {
   base: '/',
-  title: '在下坂本，有何贵干。',
+  title: 'sakamoto的个人博客',
   port: 8001,
   description: '一个个人网站，用于记录自己在技术、产品、赚钱、读书、电影、音乐上面的思考与成果。',
   head: [
@@ -11,7 +11,13 @@ module.exports = {
     ['script', { src: '//unpkg.com/valine/dist/Valine.min.js'}]
   ],
   plugins: [
-    require('./plugins/page-publish-date.js')
+    require('./plugins/page-publish-date.js'),
+    [
+      '@vuepress/google-analytics',
+      {
+        'ga': 'UA-139665684-1'
+      }
+    ]
   ],
   markdown: {
    config: md => {
@@ -31,11 +37,11 @@ module.exports = {
     editLinkText: 'Github修改此页面',
     repo: 'ChangMM/blog',
     nav: [
-      { text: '个人博客', link: 'https://blog.iizhi.cn' },
-      { text: '每日系列', link: 'https://www.iizhi.cn/daily' },
+      { text: '个人博客', link: '/' },
+      { text: '每日系列', link: 'https://www.iizhi.cn/daily/' },
       { text: '新标签页插件', link: 'https://www.iizhi.cn/newtab' },
-      // { text: '精品电子书', link: 'https://www.iizhi.cn/ebooks' },
-      { text: 'Scihub论文', link: 'https://www.iizhi.cn/scihub' }
+      { text: 'Scihub论文', link: 'https://www.iizhi.cn/scihub' },
+      { text: 'Unicode字符集', link: 'https://www.iizhi.cn/unicode/' }
     ]
   }
 }

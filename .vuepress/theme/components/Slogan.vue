@@ -1,16 +1,35 @@
 <template>
   <div class="slogan-wrap">
     <div class="inner-block">
-      <h2 class="name">明明三省</h2>
-      <p class="intro">布谷鳥在城市的上空，孤獨的叫著就像我的歌。</p>
+      <h2 class="name">我的博客</h2>
+      <p class="intro">{{intro}}</p>
       <SearchBox class="search-box" v-if="$site.themeConfig.search !== false && $page.frontmatter.search !== false"/>
     </div>
   </div>
 </template>
 <script>
 import SearchBox from '@theme/components/SearchBox'
+const axios = require('axios')
 export default {
-  components: { SearchBox }
+  components: { SearchBox },
+  data () {
+    return {
+      intro: '',
+    }
+  },
+  mounted () {
+    this.getIntro()
+  },
+  methods: {
+    async getIntro () {
+      try {
+        const result = await axios.get(`https://v1.hitokoto.cn/`)
+        this.intro = result.data.hitokoto
+      } catch (e) {
+        console.log(e)
+      }
+    }
+  }
 }
 </script>
 <style lang="stylus" scoped>
@@ -24,7 +43,7 @@ export default {
     font-weight normal
   .intro
     color #666
-    font-style italic
+    max-width 500px
   .search-box
     position absolute
     top 10px

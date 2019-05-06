@@ -5,6 +5,9 @@
       |
       <NavLink v-for="item in links" class="friend-link" :item="item" :key="item.link" />
     </p>
+    <div style="display:none;">
+      <script type="text/javascript" src="https://s5.cnzz.com/z_stat.php?id=1277447336&web_id=1277447336"></script>
+    </div>
   </div>
 </template>
 <script>
@@ -34,6 +37,6 @@ export default {
   font-size 13px
   text-align center
   .friend-link
-    margin-left 6px
+    margin-left 8px
     border-bottom: 1px dashed $borderColor
 </style>

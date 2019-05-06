@@ -19,15 +19,11 @@ import NavLinks from '@theme/components/NavLinks.vue'
 
 export default {
   components: { SidebarButton, NavLinks },
-
   data () {
     return {
     }
   },
-
-  mounted () {
-
-  }
+  mounted () {}
 }
 </script>
 
@@ -50,6 +46,7 @@ $inner-height = 20px
     margin-right 6px
     vertical-align top
   .site-name
+    opacity: 0
     vertical-align middle
     font-size 16px
     font-weight 600
