@@ -1,6 +1,6 @@
 module.exports = {
   base: '/',
-  title: 'sakamoto的个人博客',
+  title: '在下坂本',
   port: 8001,
   description: '一个个人网站，用于记录自己在技术、产品、赚钱、读书、电影、音乐上面的思考与成果。',
   head: [
@@ -38,6 +38,7 @@ module.exports = {
     repo: 'ChangMM/blog',
     nav: [
       { text: '个人博客', link: '/' },
+      { text: '电子书下载', link: 'https://www.iizhi.cn/book/' },
       { text: '每日系列', link: 'https://www.iizhi.cn/daily/' },
       { text: '新标签页插件', link: 'https://www.iizhi.cn/newtab' },
       { text: 'Scihub论文', link: 'https://www.iizhi.cn/scihub' },
