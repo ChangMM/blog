@@ -1,6 +1,6 @@
 module.exports = {
   base: '/',
-  title: '在下坂本',
+  title: '明明三省',
   port: 8001,
   description: '一个个人网站，用于记录自己在技术、产品、赚钱、读书、电影、音乐上面的思考与成果。',
   head: [
@@ -17,7 +17,8 @@ module.exports = {
       {
         'ga': 'UA-139665684-1'
       }
-    ]
+    ],
+    require('./plugins/rss.js'),
   ],
   markdown: {
    config: md => {
