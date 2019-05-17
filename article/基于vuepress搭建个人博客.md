@@ -5,7 +5,6 @@ categorys: ['个人博客', '教程']
 tags: ['vuepress']
 title: '基于vuepress搭建个人博客'
 excerpt: 本篇文章主要开源这个博客的源代码，并记录了基于vuepress的一些自定义主题开发过程中的一些问题。
-top: true
 ---
 ## 博客支持功能
 - 文章分类功能

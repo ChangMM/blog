@@ -1,7 +1,10 @@
 <template>
   <div class="post-header">
     <h2 class="post-title">
-      <a :href="post.path"><span v-if="top" class="top">[置顶]</span>{{ post.title }}</a>
+      <a :href="post.path">
+        <span v-if="top" class="top">[置顶]</span>
+        <span v-if="post.frontmatter.password" class="top">[密]</span>
+        {{ post.title }}</a>
     </h2>
     <div class="post-meta">
       <span class="author post-meta-item">

@@ -2,7 +2,14 @@
   <main class="page">
     <slot name="top"/>
     <PostHeader :post="post" />
-    <Content/>
+    <div class="password-wrap" v-if="!contentShow">
+      <p class="password-tip">本文内容已被加密，请输入密码后访问。</p>
+      <div class="input-wrap">
+        <input type="password" name="password" ref="password" placeholder="请输入密码">
+        <button type="button" @click="showContent">确认</button>
+      </div>
+    </div>
+    <Content v-if="contentShow" />
     <ClientOnly>
       <Copyright />
     </ClientOnly>
@@ -42,7 +49,15 @@ import { outboundRE, endingSlashRE } from '../util'
 
 export default {
   components: { PostHeader, Copyright, CommentBar },
+  data () {
+    return {
+      password: ''
+    }
+  },
   computed: {
+    contentShow () {
+      return !this.$page.frontmatter.password || this.password == this.$page.frontmatter.password
+    },
     post () {
       return this.$page
     },
@@ -99,8 +114,10 @@ export default {
       )
     }
   },
-
   methods: {
+    showContent () {
+      this.password = this.$refs.password.value
+    },
     createEditLink (repo, docsRepo, docsDir, docsBranch, path) {
       const bitbucket = /bitbucket.org/
       if (bitbucket.test(repo)) {
@@ -135,6 +152,42 @@ export default {
 <style lang="stylus">
 .page
   display block
+.password-wrap
+  margin-top 40px
+  margin-bottom: 40px
+  border: 1px dashed #ddd
+  padding 40px
+  text-align: center;
+  .password-tip
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: red
+  .input-wrap
+    height: 40px;
+    line-height: 40px
+    input
+      height: 100%;
+      outline: none;
+      width: 300px
+      padding-left: 10px
+      border-radius: 2px
+      border: 1px solid #ddd
+      transition: border ease 0.2s
+      &:focus
+        border-color: $accentColor
+    button
+      height: 40px;
+      width: 80px
+      cursor: pointer;
+      border: none
+      outline: none
+      color: #fff
+      border-radius: 2px
+      background-color: $accentColor
+      transition: background ease 0.2s
+      &:hover
+        background-color: darken($accentColor, 10%)
 .page-edit
   padding-top 1rem
   padding-bottom 1rem
