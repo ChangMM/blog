@@ -12,6 +12,7 @@ module.exports = {
   ],
   plugins: [
     require('./plugins/page-publish-date.js'),
+    '@vuepress/pagination',
     [
       '@vuepress/google-analytics',
       {

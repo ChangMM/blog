@@ -52,4 +52,5 @@ export default {
   text-align center
   img
     width 200px
+    border none
 </style>
