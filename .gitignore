@@ -5,4 +5,3 @@ _book
 .vuepress/dist/*
 .vuepress/dist
 deploy.sh
-article/*.md

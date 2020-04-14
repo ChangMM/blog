@@ -9,8 +9,8 @@
       </li>
     </ul>
     <div class="xinqiu-wrap">
-      <h4>我的知识星球</h4>
-      <img src="https://cdn.iizhi.cn/blog/xingqiu.png" alt="我的知识星球">
+      <h4>认识我</h4>
+      <p>个人微信:『iamtinycute』请备注博客</p>
     </div>
   </div>
 </template>
@@ -28,12 +28,14 @@ export default {
     display inline-block
     padding-bottom 1px
     border-bottom 2px solid #ccc
+    margin-bottom 10px
   ul
-    padding 10px 15px
+    padding 0 15px
+    margin-bottom 20px
     li
       color $accentColor
   .xinqiu-wrap
-    img
-      margin-top 12px
-      max-width: 100%
+    p
+      color #666
+    
 </style>

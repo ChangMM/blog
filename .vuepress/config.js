@@ -1,8 +1,8 @@
 module.exports = {
   base: '/',
-  title: '从零到壹',
+  title: '毕方铺',
   port: 8001,
-  description: '一个个人网站，用于记录自己在技术、产品、赚钱、读书、电影、音乐上面的思考与成果。',
+  description: '我在技术、思想、产品、设计上的个人成长',
   head: [
     ['meta', { name: 'keywords', content: '全栈开发，前端开发，后端开发，技术，产品，赚钱，读书，电影，音乐'}],
     ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0'}],

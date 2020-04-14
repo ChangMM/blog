@@ -8,8 +8,8 @@ let valine = null
 const checkValine = () => {
   if (window.Valine) {
     valine = new Valine({
-      appId: 'Olf3zqnXyrLW8oQPjVbBJpfN-gzGzoHsz',
-      appKey: '9XOKcIB80L7DKcKUiYQ2paY0',
+      appId: 'Amkn7zY00M6avljmahnysHrP-9Nh9j0Va',
+      appKey: 'R7yTFtSksDD7Omy8MeEFFuNu',
       el: '#comment',
       placeholder: '评论在此',
       avatar: 'monsterid',
