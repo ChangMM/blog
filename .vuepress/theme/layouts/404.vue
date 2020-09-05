@@ -2,7 +2,7 @@
   <div class="theme-container" :class="pageClasses">
     <Navbar @toggle-menu="toggleMenu" />
     <div class="content">
-      <img src="/404.png" alt="">
+      <img src="https://res.oodcd.cn/zhi/error.png" alt="404">
       <h1> 404，该页面暂时出错</h1>
       <p><router-link to="/">回首页</router-link></p>
     </div>

@@ -39,10 +39,10 @@ module.exports = {
     editLinkText: 'Github修改此页面',
     repo: 'ChangMM/blog',
     nav: [
-      { text: '个人博客', link: '/' },
+      { text: '网盘资源搜索', link: 'https://www.iizhi.cn' },
       { text: '电子书下载', link: 'https://www.iizhi.cn/book/' },
-      { text: '每日系列', link: 'https://www.iizhi.cn/daily/' },
-      { text: '新标签页插件', link: 'https://www.iizhi.cn/newtab' }
+      { text: '资源排行', link: 'https://www.iizhi.cn/rank' },
+      // { text: '新标签页插件', link: 'https://www.iizhi.cn/newtab' }
     ]
   }
 }

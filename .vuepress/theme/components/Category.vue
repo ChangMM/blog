@@ -10,7 +10,7 @@
     </ul>
     <div class="xinqiu-wrap">
       <h4>认识我</h4>
-      <p>个人微信:『iamtinycute』请备注博客</p>
+      <p>个人微信:『cmm020304』请备注博客</p>
     </div>
   </div>
 </template>

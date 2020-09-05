@@ -43,7 +43,7 @@ $inner-height = 20px
 
   .logo
     height $inner-height
-    margin-right 6px
+    margin-right 2px
     vertical-align top
   .site-name
     vertical-align middle

@@ -1,7 +1,7 @@
 <template>
   <div id="footer">
     <p>
-      <span class="copyright">© 2017-{{year}} Sakamoto 保留权利. 豫ICP备19013762号-1. </span>
+      <span class="copyright">© 2017-{{year}} 毕方铺 保留权利. 豫ICP备19013762号-1. </span>
       |
       <NavLink v-for="item in links" class="friend-link" :item="item" :key="item.link" />
     </p>
@@ -27,10 +27,10 @@ export default {
         text: '微博',
         link: 'https://weibo.com/3897687414'
       },
-      {
-        text: 'Scihub论文',
-        link: 'https://www.iizhi.cn/scihub'
-      },
+      // {
+      //   text: 'Scihub论文',
+      //   link: 'https://www.iizhi.cn/scihub'
+      // },
       {
         text: 'Unicode字符集',
         link: 'https://www.iizhi.cn/unicode/'
