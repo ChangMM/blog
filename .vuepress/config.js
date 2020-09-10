@@ -42,7 +42,7 @@ module.exports = {
       { text: '网盘资源搜索', link: 'https://www.iizhi.cn' },
       { text: '电子书下载', link: 'https://www.iizhi.cn/book/' },
       { text: '资源排行', link: 'https://www.iizhi.cn/rank' },
-      // { text: '新标签页插件', link: 'https://www.iizhi.cn/newtab' }
+      { text: '我的店铺', link: 'https://shop117651010.taobao.com/' }
     ]
   }
 }
