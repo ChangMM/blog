@@ -6,7 +6,7 @@
   "devDependencies": {
     "@vuepress/plugin-google-analytics": "^1.0.0-alpha.47",
     "@vuepress/plugin-pagination": "^1.0.0-alpha.48",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "vuepress": "^1.0.0-alpha.47",
     "vuepress-plugin-rss": "^2.0.0"
   },
