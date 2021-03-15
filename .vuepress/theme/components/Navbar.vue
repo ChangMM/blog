@@ -1,7 +1,7 @@
 <template>
   <header class="navbar">
     <div class="inner-block">
-      <a class="home-link" href="https://www.iizhi.cn">
+      <a class="home-link" href="https://blog.iizhi.cn">
         <img class="logo" v-if="$site.themeConfig.logo" :src="$withBase($site.themeConfig.logo)" :alt="$siteTitle">
         <span ref="siteName" class="site-name" v-if="$siteTitle">{{ $siteTitle }}</span>
       </a>

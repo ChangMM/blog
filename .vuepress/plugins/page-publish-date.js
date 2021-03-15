@@ -7,6 +7,8 @@ module.exports = (options = {}, context) => ({
     } else {
       $page.publishDate = $page.frontmatter.date
     }
+
+    $page.lastUpdated = getFileLastUpdateDate()
   }
 })
 
@@ -14,7 +16,14 @@ function getFilePublishDate (filePath) {
   let publishDate
   try {
     publishDate = fs.statSync(filePath).birthtime
-    console.log(publishDate)
   } catch (e) { /* do not handle for now */ }
   return publishDate
+}
+
+function getFileLastUpdateDate (filePath) {
+  let updateDate = new Date()
+  try {
+    updateDate = fs.statSync(filePath).mtime
+  } catch (e) { /* do not handle for now */ }
+  return updateDate
 }

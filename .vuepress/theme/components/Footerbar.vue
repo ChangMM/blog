@@ -26,14 +26,6 @@ export default {
       {
         text: '微博',
         link: 'https://weibo.com/3897687414'
-      },
-      // {
-      //   text: 'Scihub论文',
-      //   link: 'https://www.iizhi.cn/scihub'
-      // },
-      {
-        text: 'Unicode字符集',
-        link: 'https://www.iizhi.cn/unicode/'
       }
     ]
   })

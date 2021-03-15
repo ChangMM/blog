@@ -7,30 +7,43 @@
         {{ post.title }}</a>
     </h2>
     <div class="post-meta">
-      <span class="author post-meta-item">
+      <!-- <span class="author post-meta-item">
         作者:
         <span class="em">{{ post.frontmatter.author || '坂本' }}</span>
       </span>
-      |
+      | -->
       <span class="time post-meta-item">
         时间:
-        <time >{{ post.publishDate | toLocaleString | formatLocaleString }}</time>
+        <time>{{ post.publishDate | toLocaleString | formatLocaleString }}</time>
       </span>
       |
       <span class="categorys post-meta-item" v-if="post.frontmatter.categorys && post.frontmatter.categorys.length > 0">
         分类:
-        <router-link class="category-item em" v-for="item in post.frontmatter.categorys" :to="{ path: '/category/' + item }">{{item}}</router-link>
+        <router-link 
+          class="category-item em" 
+          v-for="item in post.frontmatter.categorys" 
+          :to="{ path: '/category/' + item }"
+          :key="item"
+        >
+          {{item}}
+        </router-link>
       </span>
       |
       <span class="tags post-meta-item" v-if="post.frontmatter.tags && post.frontmatter.tags.length > 0">
         标签:
-        <span class="tag-item em" v-for="item in post.frontmatter.tags">{{item}}</span>
+        <span 
+          class="tag-item em" 
+          v-for="item in post.frontmatter.tags"
+          :key="item"
+        >
+          {{item}}
+        </span>
       </span>
-      <!-- |
+      |
       <span :id="post.path" class="leancloud-visitors" :data-flag-title="post.title">
         阅读量:
         <i class="leancloud-visitors-count em"></i>
-      </span> -->
+      </span>
     </div>
   </div>
 </template>

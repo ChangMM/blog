@@ -10,8 +10,7 @@
       </div>
     </div>
     <Content v-if="contentShow" />
-    <ClientOnly>
-      <Copyright />
+    <ClientOnly><Copyright />
     </ClientOnly>
     <footer class="page-edit">
       <div class="edit-link" v-if="editLink">
@@ -19,7 +18,7 @@
         <OutboundLink/>
       </div>
       <div class="last-updated" v-if="lastUpdated">
-        <span class="prefix">{{ lastUpdatedText }}:{{ lastUpdated }}</span>
+        <span class="prefix">{{ lastUpdatedText }}:{{ lastUpdated | toLocaleString }}</span>
       </div>
     </footer>
     <div class="page-nav" v-if="prev || next">

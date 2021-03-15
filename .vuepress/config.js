@@ -1,6 +1,6 @@
 module.exports = {
   base: '/',
-  title: '毕方铺',
+  title: '毕方铺 - 博客',
   port: 8001,
   description: '我在技术、思想、产品、设计上的个人成长',
   head: [
@@ -39,10 +39,9 @@ module.exports = {
     editLinkText: 'Github修改此页面',
     repo: 'ChangMM/blog',
     nav: [
-      { text: '网盘资源搜索', link: 'https://www.iizhi.cn' },
-      { text: '电子书下载', link: 'https://www.iizhi.cn/book/' },
-      { text: '资源排行', link: 'https://www.iizhi.cn/rank' },
-      { text: '我的店铺', link: 'https://shop117651010.taobao.com/' }
+      { text: '网盘搜索', link: 'https://www.iizhi.cn' },
+      // { text: '电影搜索', link: 'https://www.iizhi.cn/movie' },
+      // { text: '我的店铺', link: 'https://shop117651010.taobao.com/' }
     ]
   }
 }
